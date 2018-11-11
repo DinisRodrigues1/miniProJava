@@ -36,7 +36,8 @@ Cada objeto terá a cor préviamente escolhida e com uma mínima alteração gar
 
         return true;
     }
-}; ```
+}; 
+```
 * Funções de seleção das cores
 * Função para alterar a cor de todos os objetos desenhados
 * Funções da lista dropdown (Segmento de reta, circulo, polígono(?))
