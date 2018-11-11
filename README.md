@@ -14,7 +14,7 @@ Cada objeto terá a cor préviamente escolhida e com uma mínima alteração gar
 * Relatório
 * ~~UI~~
 * Registo do toque na área de desenho (https://bit.ly/2Feaw4A)  
-  ``` private View.OnTouchListener handleTouch = new View.OnTouchListener() {
+  ```private View.OnTouchListener handleTouch = new View.OnTouchListener() {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -36,8 +36,8 @@ Cada objeto terá a cor préviamente escolhida e com uma mínima alteração gar
 
         return true;
     }
-}; 
-```
+  };```
+
 * Funções de seleção das cores
 * Função para alterar a cor de todos os objetos desenhados
 * Funções da lista dropdown (Segmento de reta, circulo, polígono(?))
