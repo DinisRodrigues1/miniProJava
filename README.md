@@ -38,5 +38,7 @@ Cada objeto terá a cor préviamente escolhida e com uma mínima alteração gar
     }
   };  
 * Funções de seleção das cores
+  * Selecionar cor (https://stackoverflow.com/a/8089242)
+  * Solução p/ problema (https://stackoverflow.com/a/29379187)
 * Função para alterar a cor de todos os objetos desenhados
 * Funções da lista dropdown (Segmento de reta, circulo, polígono(?))
