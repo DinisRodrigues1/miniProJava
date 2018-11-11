@@ -13,7 +13,7 @@ Cada objeto terá a cor préviamente escolhida e com uma mínima alteração gar
 * Diagrama de classes
 * Relatório
 * UI
+* Registo do toque na área de desenho
 * Funções de seleção das cores
 * Função para alterar a cor de todos os objetos desenhados
 * Funções da lista dropdown (Segmento de reta, circulo, polígono(?))
-* Registo do toque na área de desenho
