@@ -8,8 +8,8 @@ Cada objeto terá a cor préviamente escolhida e com uma mínima alteração gar
 
 **Wireframe**:  
 ![wireframe](https://github.com/Pantaleao/miniProJava/blob/master/wireframes/wireframe.png)
-
-Todo:  
+  
+**Todo**:  
 * Diagrama de classes
 * Relatório
 * UI
