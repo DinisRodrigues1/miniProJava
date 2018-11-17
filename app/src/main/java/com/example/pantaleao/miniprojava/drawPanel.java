@@ -6,10 +6,16 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+import android.widget.TextView;
+
 
 public class drawPanel extends View {
     Paint paint = null;
     int figure;
+    TextView s;
+
     public drawPanel(Context context) {
         super(context);
         paint = new Paint();
@@ -44,6 +50,7 @@ public class drawPanel extends View {
         if (figure ==1) // fazer resto de casos if para mudança de cores
             canvas.drawCircle(x / 2, y / 2, radius, paint);
     }
+
 
     public void setfigure(int a){
         this.figure=a;
