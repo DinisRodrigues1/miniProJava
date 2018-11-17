@@ -41,7 +41,7 @@ public class drawPanel extends View {
         canvas.drawPaint(paint);
         // Use Color.parseColor to define HTML colors
         paint.setColor(Color.parseColor("#CD5C5C"));
-        if (figure ==1)
+        if (figure ==1) // fazer resto de casos if para mudança de cores
             canvas.drawCircle(x / 2, y / 2, radius, paint);
     }
 
