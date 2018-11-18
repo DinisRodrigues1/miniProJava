@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String selColor;
     TextView s;
     Spinner spinner;
-    private static String colorVal;
-    private static String selItem;
-    private static Float selX;
-    private static Float selY;
+    public static String colorVal;
+    public static String selItem;
+    public static double selX;
+    public static double selY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +61,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         painel.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent event) {
-                float x = event.getX();
-                float y = event.getY();
-                selX = x;
-                selY = y;
-                s = findViewById(R.id.teste);
-                String nx = Float.toString(x);
-                s.setText(nx);
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    double x = event.getX();
+                    double y = event.getY();
+                    Ponto2D p1 = new Ponto2D(x, y);
+                    s = findViewById(R.id.teste);
+                    s.setText(p1.toString());
+                    selX = x;
+                    selY = y;
+                }
+               /* s = findViewById(R.id.teste);
+                String nx = Double.toString(x);
+                s.setText(nx);*/
+
                 return false;
             }
         });

@@ -5,15 +5,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 
 public class drawPanel extends View {
-
+    static int contador = 1;
     Paint paint = null;
     int figure;
     TextView s;
@@ -43,7 +41,7 @@ public class drawPanel extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-       /* int x = getWidth();
+        int x = getWidth();
         int y = getHeight();
         int radius;
         radius = 100;
@@ -55,9 +53,21 @@ public class drawPanel extends View {
         paint.setColor(Color.parseColor("#CD5C5C"));
 
         if (figure ==1)
-            canvas.drawCircle(x / 2, y / 2, radius, paint);*/
+            canvas.drawCircle(x / 2, y / 2, radius, paint);
 
-       float x = MainActivity.
+       String color = MainActivity.colorVal;
+       if (contador % 2 != 0) {
+           double xx = MainActivity.selX;
+           double yy = MainActivity.selY;
+           Ponto2D p1 = new Ponto2D(xx, yy);
+           contador++;
+       }
+       else if (contador % 2 == 0){
+           double xx = MainActivity.selX;
+           double yy = MainActivity.selY;
+           Ponto2D p2 = new Ponto2D(xx, yy);
+           contador--;
+       }
 
 
 
