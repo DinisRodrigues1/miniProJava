@@ -57,7 +57,8 @@ public class drawPanel extends View {
         if (figure ==1)
             canvas.drawCircle(x / 2, y / 2, radius, paint);*/
 
-       
+       float x = MainActivity.
+
 
 
 
