@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI xmi.version="1.2" verified="false" xmlns:UML="http://schema.omg.org/spec/UML/1.4" timestamp="2018-11-18T15:44:52">
+<XMI xmi.version="1.2" verified="false" xmlns:UML="http://schema.omg.org/spec/UML/1.4" timestamp="2018-11-18T16:30:51">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -40,17 +40,57 @@
        <UML:Classifier.feature>
         <UML:Attribute isSpecification="false" type="ueufLMAAs8JUb" initialValue="0" xmi.id="uAgRH2kD04Kay" name="x" visibility="private"/>
         <UML:Attribute isSpecification="false" type="ueufLMAAs8JUb" initialValue="0" xmi.id="uRFc88l7y5stq" name="y" visibility="private"/>
+        <UML:Operation isQuery="false" isSpecification="false" isOverride="false" isRoot="false" isAbstract="false" isLeaf="false" xmi.id="uebSBxe4ZlDbV" name="distPontos" visibility="public">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter type="ueufLMAAs8JUb" kind="return" xmi.id="uJ75kHIao9Ts6"/>
+          <UML:Parameter value="" isSpecification="false" type="uHtk2PVP8PPYr" kind="inout" xmi.id="uT1LRw9myLST6" name="a" visibility="private"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <UML:Operation isQuery="false" isSpecification="false" isOverride="false" isRoot="false" isAbstract="false" isLeaf="false" xmi.id="uy8oAizNI8022" name="Ponto2D" visibility="public">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter type="uHtk2PVP8PPYr" kind="return" xmi.id="uS0rzzQGMps9B"/>
+          <UML:Parameter value="" isSpecification="false" type="ueufLMAAs8JUb" xmi.id="u5guvyNxDKQf5" name="x" visibility="private"/>
+          <UML:Parameter value="" isSpecification="false" type="ueufLMAAs8JUb" xmi.id="u61ATLQhjNZXJ" name="y" visibility="private"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
        </UML:Classifier.feature>
       </UML:Class>
+      <UML:Class isSpecification="false" isRoot="false" isAbstract="false" isLeaf="false" namespace="Logical_View" xmi.id="uZtxnlm5ZyQFz" name="segmento_reta" visibility="public">
+       <UML:Classifier.feature>
+        <UML:Attribute isSpecification="false" type="uHtk2PVP8PPYr" xmi.id="umuPBoE9D3tWw" name="a" visibility="private"/>
+        <UML:Attribute isSpecification="false" type="uHtk2PVP8PPYr" xmi.id="ugp7Bl82OZwhi" name="b" visibility="private"/>
+        <UML:Attribute isSpecification="false" type="uLj92xg1Q7ahS" xmi.id="ugU9qiaQe6G4k" name="c" visibility="private"/>
+        <UML:Operation isQuery="false" isSpecification="false" isOverride="false" isRoot="false" isAbstract="false" isLeaf="false" xmi.id="uDDGPo5Mcqbxj" name="segmento_reta" visibility="public">
+         <UML:BehavioralFeature.parameter>
+          <UML:Parameter type="uZtxnlm5ZyQFz" kind="return" xmi.id="uj6u2LFnK2Euu"/>
+         </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Association isSpecification="false" namespace="Logical_View" xmi.id="umKIvu6xh1R7j" name="" visibility="public">
+       <UML:Association.connection>
+        <UML:AssociationEnd isSpecification="false" type="uHtk2PVP8PPYr" changeability="changeable" aggregation="composite" isNavigable="true" xmi.id="uuoSdfYnfBENE" name="" visibility="public"/>
+        <UML:AssociationEnd isSpecification="false" type="uZtxnlm5ZyQFz" changeability="changeable" aggregation="none" isNavigable="true" xmi.id="uNQ4JLRvVSQuy" name="" visibility="public"/>
+       </UML:Association.connection>
+      </UML:Association>
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams resolution="96">
-       <diagram zoom="100" isopen="1" canvasheight="196" name="class diagram" showatts="1" xmi.id="uZXWvBoXD1SyH" showstereotype="1" showops="1" snapy="25" linewidth="0" showgrid="0" snapgrid="0" showattsig="1" type="1" backgroundcolor="#ffffff" showpackage="1" showpubliconly="0" localid="-1" fillcolor="#ffff00" showattribassocs="1" usefillcolor="1" canvaswidth="396" font="Ubuntu,11,-1,5,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#ff0000" snapcsgrid="0" textcolor="#000000" snapx="25" showopsig="1" documentation="" showscope="1">
+       <diagram zoom="100" isopen="1" canvasheight="497" name="class diagram" showatts="1" xmi.id="uZXWvBoXD1SyH" showstereotype="1" showops="1" snapy="25" linewidth="0" showgrid="0" snapgrid="0" showattsig="1" type="1" backgroundcolor="#ffffff" showpackage="1" showpubliconly="0" localid="-1" fillcolor="#ffff00" showattribassocs="1" usefillcolor="1" canvaswidth="1073" font="Ubuntu,11,-1,5,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#ff0000" snapcsgrid="0" textcolor="#000000" snapx="25" showopsig="1" documentation="" showscope="1">
         <widgets>
-         <classwidget showattributes="1" showopsigs="601" y="-273" isinstance="0" autoresize="1" showattsigs="601" showstereotype="1" xmi.id="uHtk2PVP8PPYr" usesdiagramfillcolor="0" linewidth="0" showoperations="1" width="108" usesdiagramusefillcolor="0" x="-631" showpackage="1" localid="ur7aIbEJHDFim" showpubliconly="0" fillcolor="#ffff00" height="59" usefillcolor="1" font="Ubuntu,11,-1,5,50,0,0,0,0,0" linecolor="#ff0000" textcolor="#000000" showscope="1"/>
+         <classwidget showattributes="1" showopsigs="601" y="-319.086" isinstance="0" autoresize="1" showattsigs="601" showstereotype="1" xmi.id="uZtxnlm5ZyQFz" usesdiagramfillcolor="0" linewidth="0" showoperations="1" width="251" usesdiagramusefillcolor="0" x="-811.706" showpackage="1" localid="u00lcWXaX74Dt" showpubliconly="0" fillcolor="#ffff00" height="85" usefillcolor="1" font="Ubuntu,11,-1,5,50,0,0,0,0,0" linecolor="#ff0000" textcolor="#000000" showscope="1"/>
+         <classwidget showattributes="1" showopsigs="601" y="-482.563" isinstance="0" autoresize="1" showattsigs="601" showstereotype="1" xmi.id="uHtk2PVP8PPYr" usesdiagramfillcolor="0" linewidth="0" showoperations="1" width="301" usesdiagramusefillcolor="0" x="-830.688" showpackage="1" localid="uACpNfcxyBGGA" showpubliconly="0" fillcolor="#ffff00" height="85" usefillcolor="1" font="Ubuntu,11,-1,5,50,0,0,0,0,0" linecolor="#ff0000" textcolor="#000000" showscope="1"/>
         </widgets>
         <messages/>
-        <associations/>
+        <associations>
+         <assocwidget widgetbid="uHtk2PVP8PPYr" visibilityB="1" autoresize="1" totalcounta="2" totalcountb="2" xmi.id="umuPBoE9D3tWw" visibilityA="1" usesdiagramfillcolor="1" linewidth="0" changeabilityB="900" usesdiagramusefillcolor="1" changeabilityA="900" type="510" widgetaid="uZtxnlm5ZyQFz" fillcolor="none" usefillcolor="1" font="Ubuntu,11,-1,5,50,0,0,0,0,0" indexa="1" linecolor="#ff0000" textcolor="none" seqnum="" indexb="1">
+          <linepath layout="Polyline">
+           <startpoint starty="-319.086" startx="-690.688"/>
+           <endpoint endy="-397.563" endx="-690.688"/>
+          </linepath>
+          <floatingtext y="-395.563" isinstance="0" autoresize="1" showstereotype="1" xmi.id="ubhqt5ixI7uVP" text="a" usesdiagramfillcolor="1" linewidth="0" posttext="" width="20" role="710" usesdiagramusefillcolor="1" x="-708.688" localid="uOAJRQwYJ9L4p" fillcolor="none" height="21" usefillcolor="1" font="Ubuntu,11,-1,5,50,0,0,0,0,0" linecolor="#ff0000" textcolor="none" pretext="-"/>
+         </assocwidget>
+        </associations>
        </diagram>
       </diagrams>
      </XMI.extension>
@@ -71,7 +111,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="uZXWvBoXD1SyH" documentation="" uniqueid="uebSBxe4ZlDbV"/>
+  <docsettings viewid="uZXWvBoXD1SyH" documentation="" uniqueid="uIbyGgbCRdXVj"/>
   <listview>
    <listitem open="1" id="Views" type="800">
     <listitem open="1" id="Component_View" type="821"/>
@@ -100,15 +140,27 @@
       <listitem open="1" id="upLDvQZxqydTf" type="829"/>
      </listitem>
      <listitem open="1" id="uHtk2PVP8PPYr" type="813">
+      <listitem open="0" id="uebSBxe4ZlDbV" type="815"/>
+      <listitem open="0" id="uy8oAizNI8022" type="815"/>
       <listitem open="0" id="uAgRH2kD04Kay" type="814"/>
       <listitem open="0" id="uRFc88l7y5stq" type="814"/>
+     </listitem>
+     <listitem open="1" id="uZtxnlm5ZyQFz" type="813">
+      <listitem open="0" id="umuPBoE9D3tWw" type="814"/>
+      <listitem open="0" id="ugp7Bl82OZwhi" type="814"/>
+      <listitem open="0" id="ugU9qiaQe6G4k" type="814"/>
+      <listitem open="0" id="uDDGPo5Mcqbxj" type="815"/>
      </listitem>
     </listitem>
     <listitem open="1" id="Use_Case_View" type="802"/>
    </listitem>
   </listview>
   <codegeneration>
-   <codegenerator language="C++"/>
+   <codegenerator language="C++">
+    <sourcecode id="uebSBxe4ZlDbV" value="return Math.sqrt(Math.pow((a.x - this.x), 2) + Math.pow((a.y - this.y), 2));"/>
+    <sourcecode id="uy8oAizNI8022" value="public Ponto2D(double coordX, double coordY) {&#xa;        this.x = coordX;&#xa;        this.y = coordY;&#xa;    }"/>
+    <sourcecode id="uDDGPo5Mcqbxj" value="public segmento_reta(String c, Ponto2D a, Ponto2D b) {&#xa;        color = c;&#xa;        this.a = a;&#xa;        this.b = b;&#xa;        dist =  a.distPontos(b);&#xa;    }"/>
+   </codegenerator>
   </codegeneration>
  </XMI.extensions>
 </XMI>

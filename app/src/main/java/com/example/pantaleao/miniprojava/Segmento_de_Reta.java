@@ -1,13 +1,13 @@
 package com.example.pantaleao.miniprojava;
 
 public class Segmento_de_Reta {
-    int color;
+    String color;
     Ponto2D a;
     Ponto2D b;
     double dist;
 
 
-    public Segmento_de_Reta(int c, Ponto2D a, Ponto2D b) {
+    public Segmento_de_Reta(String c, Ponto2D a, Ponto2D b) {
         color = c;
         this.a = a;
         this.b = b;
@@ -17,6 +17,5 @@ public class Segmento_de_Reta {
     public double pontoMedio(Ponto2D a, Ponto2D b) {
         return (a.x + b.x) + (a.y + b.y) / 2;
     }
-
 
 }
