@@ -37,8 +37,9 @@ Cada objeto terá a cor préviamente escolhida e com uma mínima alteração (cl
         return true;
     }
   };  
+* onDraw (https://developer.android.com/training/custom-views/custom-drawing)
 * Funções de seleção das cores
   * Selecionar cor (Solução provisória - https://stackoverflow.com/a/8089261)
   * Solução p/ problema da cor (https://stackoverflow.com/a/29379187)
-* Função para alterar a cor de todos os objetos desenhados
-* Funções da lista dropdown (Segmento de reta, circulo, polígono(?))
+* Função para alterar a cor de todos os objetos desenhados 
+* Funções da lista dropdown - spinner (Segmento de reta, circulo, polígono) (https://developer.android.com/guide/topics/ui/controls/spinner) (https://www.tutorialspoint.com/android/android_spinner_control.htm) (https://stackoverflow.com/questions/3616676/how-to-draw-a-line-in-android)
