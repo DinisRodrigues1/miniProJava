@@ -18,5 +18,5 @@ public class Segmento_de_Reta {
         return (a.x + b.x) + (a.y + b.y) / 2;
     }
 
-    
+
 }
