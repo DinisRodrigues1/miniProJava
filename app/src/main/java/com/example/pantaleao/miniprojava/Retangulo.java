@@ -1,6 +1,6 @@
 package com.example.pantaleao.miniprojava;
 
-public class Retangulo {
+public class Retangulo{
     float w, h;
     int x, y;
 

@@ -1,16 +1,4 @@
 <resources>
     <string name="app_name">miniProJava</string>
 
-    <string-array name="options">
-        <item>
-            Recta
-        </item>
-        <item>
-            Circulo
-        </item>
-        <item>
-            Poligono
-        </item>
-
-    </string-array>
 </resources>
