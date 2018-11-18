@@ -1,10 +1,13 @@
 package com.example.pantaleao.miniprojava;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,18 +16,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
+{
     drawPanel v;
     String colorCode;
+    String selColor;
     TextView s;
     Spinner spinner;
-
-
+    private static String colorVal;
+    private static String selItem;
+    private static Float selX;
+    private static Float selY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         v = findViewById(R.id.painel);
         spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
+        addTouchListener();
+
 
         List<String> options = new ArrayList<String>();
         options.add("Reta");
@@ -47,6 +54,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setAdapter(adapter);
 
     }
+
+    @SuppressLint("ClickableViewAccessibility")
+    public void addTouchListener() {
+        drawPanel painel = findViewById(R.id.painel);
+
+        painel.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View view, MotionEvent event) {
+                float x = event.getX();
+                float y = event.getY();
+                selX = x;
+                selY = y;
+                s = findViewById(R.id.teste);
+                String nx = Float.toString(x);
+                s.setText(nx);
+                return false;
+            }
+        });
+    }
+
     public void f(View vs)
     {
         v.setfigure(1);
@@ -54,10 +80,46 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void colorSel(View view){
+        Context context = getApplicationContext();
+            switch (view.getId()) {
+
+                case R.id.btnBlack:
+                    colorCode = (String)findViewById(R.id.btnBlack).getTag();
+                    colorVal = colorCode;
+                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    break;
+                case R.id.btnBlue:
+                    colorCode = (String)findViewById(R.id.btnBlue).getTag();
+                    colorVal = colorCode;
+                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    break;
+                case R.id.btnGreen:
+                    colorCode = (String)findViewById(R.id.btnGreen).getTag();
+                    colorVal = colorCode;
+                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    break;
+                case R.id.btnRed:
+                    colorCode = (String)findViewById(R.id.btnRed).getTag();
+                    colorVal = colorCode;
+                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    break;
+                case R.id.btnClear:
+                    colorCode = (String)findViewById(R.id.btnBlack).getTag(); // TODO WITH CLEAR AND ABOUT
+                    colorVal = colorCode;
+                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    break;
+                case R.id.btnAbout:
+                    colorCode = (String)findViewById(R.id.btnBlack).getTag(); // TODO WITH CLEAR AND ABOUT
+                    colorVal = colorCode;
+                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    break;
+            }
         s = findViewById(R.id.teste);
         colorCode = (String)findViewById(R.id.btnBlack).getTag();
-        if (colorCode.equals(String.valueOf(android.R.color.black))){
-            s.setText("wow cool");
+
+        if (colorCode.equals(String.valueOf(android.R.color.black))) {
+
+           // s.setText("wow cool");
         }
         //if colorSel(cor) == selectedCol else: alterar colorSel
 
@@ -67,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         // On selecting a spinner item
         String item = parent.getItemAtPosition(pos).toString();
-
+        selItem = item; //ACCESS BY OTHER CLASS NAME .getVariable();
         // Showing selected spinner item
         s = findViewById(R.id.teste);
         s.setText(item);
@@ -85,6 +147,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // Another interface callback
     }
 
+  /*  public void canvasClick (View v) {
+        s = findViewById(R.id.teste);
+        s.setText("nice");
+
+    } */
 
 
 }
