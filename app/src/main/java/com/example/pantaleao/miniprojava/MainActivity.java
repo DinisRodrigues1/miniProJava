@@ -2,8 +2,10 @@ package com.example.pantaleao.miniprojava;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
     drawPanel v;
@@ -30,10 +33,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static String selItem;
     public static double selX;
     public static double selY;
+    public Poligono mypol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mypol = new Poligono();
         setContentView(R.layout.activity_main);
         v = findViewById(R.id.painel);
         spinner = findViewById(R.id.spinner);
@@ -65,8 +70,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     double x = event.getX();
                     double y = event.getY();
                     Ponto2D p1 = new Ponto2D(x, y);
+                   // Poligono pol = new Poligono(p1);
+                    mypol.add(p1);
                     s = findViewById(R.id.teste);
-                    s.setText(p1.toString());
+                    s.setText(mypol.lista.toString());
                     selX = x;
                     selY = y;
                 }
@@ -79,12 +86,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
     }
 
-    public void f(View vs)
+ /*   public void f(View vs)
     {
         v.setfigure(1);
         v.invalidate();
     }
-
+*/
     public void colorSel(View view){
         Context context = getApplicationContext();
             switch (view.getId()) {
@@ -110,27 +117,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnClear:
-                    colorCode = (String)findViewById(R.id.btnBlack).getTag(); // TODO WITH CLEAR AND ABOUT
-                    colorVal = colorCode;
-                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    mypol.lista.clear();
+                    colorCode = (String)findViewById(R.id.btnClear).getTag();
+                    Toast.makeText(context, "Cleared Interface", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnAbout:
-                    colorCode = (String)findViewById(R.id.btnBlack).getTag(); // TODO WITH CLEAR AND ABOUT
-                    colorVal = colorCode;
-                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("About");
+                    builder.setMessage("Mensagem do além");
+                    builder.show();
+
+
                     break;
             }
         s = findViewById(R.id.teste);
-        colorCode = (String)findViewById(R.id.btnBlack).getTag();
 
-        if (colorCode.equals(String.valueOf(android.R.color.black))) {
+
+   //     if (colorCode.equals(String.valueOf(android.R.color.black))) {
 
            // s.setText("wow cool");
         }
         //if colorSel(cor) == selectedCol else: alterar colorSel
 
         //
-    }
+   // }
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         // On selecting a spinner item
