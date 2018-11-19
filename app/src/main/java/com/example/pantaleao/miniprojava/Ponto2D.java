@@ -5,7 +5,7 @@ public class Ponto2D {
     double y;
 
 
-    public Ponto2D(double coordX, double coordY) {
+    public  Ponto2D(double coordX, double coordY) {
         this.x = coordX;
         this.y = coordY;
     }
