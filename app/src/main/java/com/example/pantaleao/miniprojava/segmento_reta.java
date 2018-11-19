@@ -13,6 +13,8 @@ public class segmento_reta {
         dist = a.distPontos(b);
     }
 
+
+
     public double pontoMedio(Ponto2D a, Ponto2D b) {
         return (a.x + b.x) + (a.y + b.y) / 2;
     }
