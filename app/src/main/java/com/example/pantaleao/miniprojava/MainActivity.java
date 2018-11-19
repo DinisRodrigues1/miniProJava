@@ -2,22 +2,16 @@ package com.example.pantaleao.miniprojava;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +20,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 {
     drawPanel v;
     String colorCode;
-    String selColor;
+    String item;
     TextView s;
     Spinner spinner;
     public static String colorVal;
-    public static String selItem;
     public static double selX;
     public static double selY;
+    public static String selItem;
     public Poligono mypol;
 
     @Override
@@ -63,35 +57,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @SuppressLint("ClickableViewAccessibility")
     public void addTouchListener() {
         drawPanel painel = findViewById(R.id.painel);
-
         painel.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    double x = event.getX();
-                    double y = event.getY();
-                    Ponto2D p1 = new Ponto2D(x, y);
-                   // Poligono pol = new Poligono(p1);
-                    mypol.add(p1);
-                    s = findViewById(R.id.teste);
-                    s.setText(mypol.lista.toString());
-                    selX = x;
-                    selY = y;
+                if (selItem.equals("Poligono")){
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        double x = event.getX();
+                        double y = event.getY();
+                        Ponto2D p1 = new Ponto2D(x, y);
+                        mypol.add(p1);
+                        s = findViewById(R.id.teste);
+                        s.setText(mypol.lista.toString());
+                        selX = x;
+                        selY = y;
+                    }
                 }
-               /* s = findViewById(R.id.teste);
-                String nx = Double.toString(x);
-                s.setText(nx);*/
+                else if (selItem.equals("Circulo")) {
+
+
+                }
+                else {
+
+                }
+
 
                 return false;
             }
         });
     }
 
- /*   public void f(View vs)
-    {
-        v.setfigure(1);
-        v.invalidate();
-    }
-*/
+
     public void colorSel(View view){
         Context context = getApplicationContext();
             switch (view.getId()) {
@@ -124,7 +118,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 case R.id.btnAbout:
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setTitle("About");
-                    builder.setMessage("Mensagem do além");
+                    builder.setMessage("Para criar um poligono selecione a sua opção e carregue no " +
+                            "ecrã para criar os diversos pontos. \n" +
+                            "Para criar um circulo clique e " +
+                            "arraste com a opção de circulo selecionada. \n" +
+                            "Para criar uma linha " +
+                            "clique e arraste de modo a criá-la.");
                     builder.show();
 
 
@@ -132,42 +131,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         s = findViewById(R.id.teste);
 
-
-   //     if (colorCode.equals(String.valueOf(android.R.color.black))) {
-
-           // s.setText("wow cool");
         }
-        //if colorSel(cor) == selectedCol else: alterar colorSel
-
-        //
-   // }
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         // On selecting a spinner item
-        String item = parent.getItemAtPosition(pos).toString();
-        selItem = item; //ACCESS BY OTHER CLASS NAME .getVariable();
-        // Showing selected spinner item
+        item = parent.getItemAtPosition(pos).toString();
+
         s = findViewById(R.id.teste);
         s.setText(item);
-        //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-       /* if (item == "Poligono") {
-            //faz cenas de poligono
+        if (item.equals("Poligono")) {
+            Toast.makeText(getApplicationContext(), "poligono", Toast.LENGTH_SHORT).show();
+            selItem = item;
+        }
+        else if (item.equals("Circulo")){
+            Toast.makeText(getApplicationContext(), "circulo", Toast.LENGTH_SHORT).show();
+            selItem = item;
         }
         else{
-            //outras cenas
+            Toast.makeText(getApplicationContext(), "reta", Toast.LENGTH_SHORT).show();
+            selItem = item;
         }
-*/
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
-
-  /*  public void canvasClick (View v) {
-        s = findViewById(R.id.teste);
-        s.setText("nice");
-
-    } */
-
 
 }
