@@ -2,6 +2,7 @@ package com.example.pantaleao.miniprojava;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Canvas;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,11 +29,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static double selY;
     public static String selItem;
     public Poligono mypol;
+    private Circulo circulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mypol = new Poligono();
+        circulo = new Circulo();
         setContentView(R.layout.activity_main);
         v = findViewById(R.id.painel);
         spinner = findViewById(R.id.spinner);
@@ -44,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         options.add("Reta");
         options.add("Circulo");
         options.add("Poligono");
-        //options.add("outro");
 
         ArrayAdapter<String> adapter = new  ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options);
 
@@ -72,8 +74,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                 }
                 else if (selItem.equals("Circulo")) {
-
-
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                       if(circulo.isZeroPoints()){
+                           circulo.setPointOne(new Ponto2D(event.getX(),event.getY()));
+                       }else{
+                           circulo.setPointTwo(new Ponto2D(event.getX(),event.getY()));
+                           circulo.calcCenter();
+                           // TODO
+                           //Dezenhar circulo
+                       }
+                    }
                 }
                 else {
 
@@ -92,17 +102,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 case R.id.btnBlack:
                     colorCode = (String)findViewById(R.id.btnBlack).getTag();
-                    colorVal = colorCode;
+                    colorVal = "#000000";
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnBlue:
                     colorCode = (String)findViewById(R.id.btnBlue).getTag();
-                    colorVal = colorCode;
+                    colorVal = "#0000FF";
+
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnGreen:
                     colorCode = (String)findViewById(R.id.btnGreen).getTag();
-                    colorVal = colorCode;
+                    colorVal = "#008000";
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnRed:
@@ -112,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     break;
                 case R.id.btnClear:
                     mypol.lista.clear();
+
                     colorCode = (String)findViewById(R.id.btnClear).getTag();
                     Toast.makeText(context, "Cleared Interface", Toast.LENGTH_LONG).show();
                     break;
@@ -125,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             "Para criar uma linha " +
                             "clique e arraste de modo a criá-la.");
                     builder.show();
-
 
                     break;
             }
