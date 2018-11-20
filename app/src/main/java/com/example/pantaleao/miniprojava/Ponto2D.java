@@ -3,7 +3,11 @@ package com.example.pantaleao.miniprojava;
 public class Ponto2D {
     double x;
     double y;
+    private boolean zeroPoints = true;
 
+    public Ponto2D(){
+
+    }
 
     public  Ponto2D(double coordX, double coordY) {
         this.x = coordX;

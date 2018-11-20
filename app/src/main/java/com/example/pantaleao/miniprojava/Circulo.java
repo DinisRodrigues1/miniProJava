@@ -1,9 +1,6 @@
 package com.example.pantaleao.miniprojava;
 
 public class Circulo {
-    float r;
-    float centerX;
-    float centerY;
     private Ponto2D pointOne;
     private Ponto2D pointTwo;
     private boolean zeroPoints = true;
@@ -12,11 +9,6 @@ public class Circulo {
 
     }
 
-    public Circulo(float radius, float x, float y) {
-        this.centerX = x;
-        this.centerY = y;
-        this.r = radius;
-    }
 
     public boolean isZeroPoints() {
         return zeroPoints;
@@ -43,14 +35,11 @@ public class Circulo {
         this.pointTwo = pointTwo;
     }
 
-    public double calcCenter(){
+    public double calcDist(){
         // TODO
         this.zeroPoints=true;
         return Math.sqrt(Math.pow((this.pointOne.x - this.pointTwo.x), 2) + Math.pow((this.pointOne.y - this.pointTwo.y), 2));
     }
 
-    public float perimeter(Circulo a) {
-        return (float) (2 * Math.PI * a.r);
-    }
 }
 

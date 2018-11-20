@@ -1,9 +1,8 @@
 package com.example.pantaleao.miniprojava;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -17,13 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
-{
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     drawPanel panel;
     String colorCode;
     String item;
     TextView test;
     Spinner spinner;
+    List<Ponto2D> points = new ArrayList<Ponto2D>();
+    public static double origX, origY, radius;
+
+
+
    // TODO public static String colorVal = "#FFFFFF";
     public static String selItem;
    // TODO  public Poligono mypol;
@@ -41,10 +44,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         addTouchListener();
 
 
+
         List<String> options = new ArrayList<String>();
         options.add("Reta");
         options.add("Circulo");
         options.add("Poligono");
+
 
         ArrayAdapter<String> adapter = new  ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options);
 
@@ -54,11 +59,38 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        // On selecting a spinner item
+        item = parent.getItemAtPosition(pos).toString();
+
+        test = findViewById(R.id.teste);
+        test.setText(item);
+        if (item.equals("Poligono")) {
+            Toast.makeText(getApplicationContext(), "poligono", Toast.LENGTH_SHORT).show();
+            selItem = item;
+        }
+        else if (item.equals("Circulo")){
+            Toast.makeText(getApplicationContext(), "circulo", Toast.LENGTH_SHORT).show();
+            selItem = item;
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "reta", Toast.LENGTH_SHORT).show();
+            selItem = item;
+        }
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
+
+
     @SuppressLint("ClickableViewAccessibility")
     public void addTouchListener() {
         panel.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent event) {
+
                 if (selItem.equals("Poligono")){
+
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         double x = event.getX();
                         double y = event.getY();
@@ -70,22 +102,42 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                 }
                 else if (selItem.equals("Circulo")) {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
                        if(circulo.isZeroPoints()){
                            circulo.setPointOne(new Ponto2D(event.getX(),event.getY()));
                        }else{
                            circulo.setPointTwo(new Ponto2D(event.getX(),event.getY()));
-                           circulo.calcCenter();
-                           String aux = String.valueOf(circulo.calcCenter());
+                           origX = circulo.getPointOne().x;
+                           origY = circulo.getPointOne().y;
+                           radius = circulo.calcDist();
+                           /*Intent intent = new Intent(getApplicationContext(), drawPanel.class);
+                           intent.putExtra("origX", origX);
+                           intent.putExtra("origY", origY);
+                           intent.putExtra("radius", radius);
+                           startActivity(intent);*/
+                           String aux = String.valueOf(origX);
                            test = findViewById(R.id.teste);
                            test.setText(aux);
-                           // TODO
-                           // TODO Desenhar circulo
                        }
                     }
+                    panel.setfigure(2);
+                   // panel.invalidate();
                 }
                 else {
                         // TODO WITH LINE PLZ
+
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            if (points.size() < 3) {
+                                double x = event.getX();
+                                double y = event.getY();
+                                Ponto2D p1 = new Ponto2D(x, y);
+                                points.add(p1);
+                            }
+                            else {
+                                points.get(0).distPontos(points.get(1));
+
+                            }
+                        }
 
                 }
 
@@ -146,28 +198,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         }*/
 
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        // On selecting a spinner item
-        item = parent.getItemAtPosition(pos).toString();
-
-        test = findViewById(R.id.teste);
-        test.setText(item);
-        if (item.equals("Poligono")) {
-            Toast.makeText(getApplicationContext(), "poligono", Toast.LENGTH_SHORT).show();
-            selItem = item;
-        }
-        else if (item.equals("Circulo")){
-            Toast.makeText(getApplicationContext(), "circulo", Toast.LENGTH_SHORT).show();
-            selItem = item;
-        }
-        else{
-            Toast.makeText(getApplicationContext(), "reta", Toast.LENGTH_SHORT).show();
-            selItem = item;
-        }
-    }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
-    }
 
 }
