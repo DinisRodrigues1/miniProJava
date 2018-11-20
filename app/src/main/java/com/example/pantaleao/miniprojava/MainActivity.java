@@ -19,23 +19,23 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
-    drawPanel v;
+    drawPanel panel;
     String colorCode;
     String item;
-    public static TextView s;
+    TextView test;
     Spinner spinner;
-    public static String colorVal = "#FFFFFF";
+   // TODO public static String colorVal = "#FFFFFF";
     public static String selItem;
-    public Poligono mypol;
+   // TODO  public Poligono mypol;
     private Circulo circulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mypol = new Poligono();
+       // TODO mypol = new Poligono();
         circulo = new Circulo();
         setContentView(R.layout.activity_main);
-        v = findViewById(R.id.painel);
+        panel = findViewById(R.id.painel);
         spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
         addTouchListener();
@@ -56,17 +56,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @SuppressLint("ClickableViewAccessibility")
     public void addTouchListener() {
-        drawPanel painel = findViewById(R.id.painel);
-        painel.setOnTouchListener(new View.OnTouchListener() {
+        panel.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent event) {
                 if (selItem.equals("Poligono")){
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         double x = event.getX();
                         double y = event.getY();
                         Ponto2D p1 = new Ponto2D(x, y);
-                        mypol.add(p1);
-                        s = findViewById(R.id.teste);
-                        s.setText(mypol.lista.toString());
+                        // TODO mypol.add(p1);
+                        test = findViewById(R.id.teste);
+                        // TODO TEST test.setText(mypol.lista.toString());
 
                     }
                 }
@@ -77,16 +76,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                        }else{
                            circulo.setPointTwo(new Ponto2D(event.getX(),event.getY()));
                            circulo.calcCenter();
+                           String aux = String.valueOf(circulo.calcCenter());
+                           test = findViewById(R.id.teste);
+                           test.setText(aux);
                            // TODO
-                           //Dezenhar circulo
+                           // TODO Desenhar circulo
                        }
                     }
                 }
                 else {
-
+                        // TODO WITH LINE PLZ
 
                 }
-
 
                 return false;
             }
@@ -94,32 +95,32 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
 
-    public void colorSel(View view){
+  /*  public void colorSel(View view){
         Context context = getApplicationContext();
             switch (view.getId()) {
 
                 case R.id.btnBlack:
                     colorCode = (String)findViewById(R.id.btnBlack).getTag();
                     colorVal = "#000000";
-                    s.setText(colorVal);
+                    test.setText(colorVal);
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnBlue:
                     colorCode = (String)findViewById(R.id.btnBlue).getTag();
                     colorVal = "#0000FF";
-                    s.setText(colorVal);
+                    test.setText(colorVal);
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnGreen:
                     colorCode = (String)findViewById(R.id.btnGreen).getTag();
                     colorVal = "#008000";
-                    s.setText(colorVal);
+                    test.setText(colorVal);
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnRed:
                     colorCode = (String)findViewById(R.id.btnRed).getTag();
                     colorVal = "#FF0000";
-                    s.setText(colorVal);
+                    test.setText(colorVal);
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnClear:
@@ -141,16 +142,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                     break;
             }
-        s = findViewById(R.id.teste);
+        test = findViewById(R.id.teste);
 
-        }
+        }*/
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         // On selecting a spinner item
         item = parent.getItemAtPosition(pos).toString();
 
-        s = findViewById(R.id.teste);
-        s.setText(item);
+        test = findViewById(R.id.teste);
+        test.setText(item);
         if (item.equals("Poligono")) {
             Toast.makeText(getApplicationContext(), "poligono", Toast.LENGTH_SHORT).show();
             selItem = item;

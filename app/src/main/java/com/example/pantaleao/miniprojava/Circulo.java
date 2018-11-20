@@ -43,10 +43,10 @@ public class Circulo {
         this.pointTwo = pointTwo;
     }
 
-    public void calcCenter(){
+    public double calcCenter(){
         // TODO
-       // calcular centro
         this.zeroPoints=true;
+        return Math.sqrt(Math.pow((this.pointOne.x - this.pointTwo.x), 2) + Math.pow((this.pointOne.y - this.pointTwo.y), 2));
     }
 
     public float perimeter(Circulo a) {
