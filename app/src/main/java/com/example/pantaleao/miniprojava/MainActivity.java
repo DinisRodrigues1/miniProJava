@@ -22,11 +22,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     drawPanel v;
     String colorCode;
     String item;
-    TextView s;
+    public static TextView s;
     Spinner spinner;
-    public static String colorVal;
-    public static double selX;
-    public static double selY;
+    public static String colorVal = "#FFFFFF";
     public static String selItem;
     public Poligono mypol;
     private Circulo circulo;
@@ -69,8 +67,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         mypol.add(p1);
                         s = findViewById(R.id.teste);
                         s.setText(mypol.lista.toString());
-                        selX = x;
-                        selY = y;
+
                     }
                 }
                 else if (selItem.equals("Circulo")) {
@@ -86,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                 }
                 else {
+
 
                 }
 
@@ -103,22 +101,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 case R.id.btnBlack:
                     colorCode = (String)findViewById(R.id.btnBlack).getTag();
                     colorVal = "#000000";
+                    s.setText(colorVal);
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnBlue:
                     colorCode = (String)findViewById(R.id.btnBlue).getTag();
                     colorVal = "#0000FF";
-
+                    s.setText(colorVal);
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnGreen:
                     colorCode = (String)findViewById(R.id.btnGreen).getTag();
                     colorVal = "#008000";
+                    s.setText(colorVal);
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnRed:
                     colorCode = (String)findViewById(R.id.btnRed).getTag();
-                    colorVal = colorCode;
+                    colorVal = "#FF0000";
+                    s.setText(colorVal);
                     Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnClear:

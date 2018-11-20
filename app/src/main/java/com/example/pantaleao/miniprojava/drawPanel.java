@@ -7,12 +7,14 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 public class drawPanel extends View {
     Paint paint = null;
     TextView s;
+    String color = MainActivity.colorVal;
+
 
 
     public drawPanel(Context context) {
@@ -50,7 +52,6 @@ public class drawPanel extends View {
         //paint.setColor(Color.parseColor("#CB5CB5"));
         //canvas.drawCircle(x/2, y/2, radius, paint);
         //String color = MainActivity.colorVal;
-        String color = "#000000";
 
         if (color.equals("#000000")) {
             paint.setColor(Color.parseColor("#000000"));
