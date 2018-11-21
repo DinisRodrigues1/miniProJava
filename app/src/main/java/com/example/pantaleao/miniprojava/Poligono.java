@@ -4,7 +4,8 @@ import java.util.Vector;
 
 public class Poligono {
 
-  Vector<Ponto2D> lista;
+  private Vector<Ponto2D> lista;
+
     public Poligono(Ponto2D ponto) {
         lista = new Vector();
         lista.add(ponto);
@@ -13,12 +14,13 @@ public class Poligono {
     public Poligono() {
         lista = new Vector();
     }
+
     public void add(Ponto2D aux)
     {
         lista.add(aux);
     }
 
-
-
-
+    public Vector<Ponto2D> getLista() {
+        return lista;
+    }
 }
