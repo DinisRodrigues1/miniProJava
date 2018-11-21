@@ -1,20 +1,26 @@
 package com.example.pantaleao.miniprojava;
 
+import java.util.Vector;
+
 public class Poligono {
-    int xpoints;
-    int npoints;
 
-    public Poligono(int x, int n) {
-        this.xpoints = x;
-        this.npoints = n;
+  private Vector<Ponto2D> lista;
+
+    public Poligono(Ponto2D ponto) {
+        lista = new Vector();
+        lista.add(ponto);
+
+    }
+    public Poligono() {
+        lista = new Vector();
     }
 
-    public double calcPerimetro(Poligono a) {
-        return a.xpoints * a.npoints;
+    public void add(Ponto2D aux)
+    {
+        lista.add(aux);
     }
 
-    public double calcArea(Poligono a) {
-        return (a.npoints * (a.xpoints * a.xpoints)) / (4.0 * Math.tan((Math.PI / a.npoints)));
-
+    public Vector<Ponto2D> getLista() {
+        return lista;
     }
 }
