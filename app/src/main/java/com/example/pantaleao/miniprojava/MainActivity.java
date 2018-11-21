@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     // Declaration of global vars
     private drawPanel panel;
     private String colorCode;
-    private String item;
     private Spinner spinner;
     private String selItem;
     private Circulo circulo;
@@ -121,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     if(mypol.getLista().size() < 4){
                         mypol.add(new Ponto2D(event.getX(),event.getY()));
                     }
-                    if(mypol.getLista().size()==4){
+                    if(mypol.getLista().size()== 4){
                         panel.invalidate();
                         panel.setfigure(4,mypol.getLista().get(0),mypol.getLista().get(1),mypol.getLista().get(2),mypol.getLista().get(3));
                         panel.invalidate();
@@ -134,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     if(mypol.getLista().size() < 5){
                         mypol.add(new Ponto2D(event.getX(),event.getY()));
                     }
-                    if(mypol.getLista().size()==5){
+                    if(mypol.getLista().size()== 5){
                         panel.invalidate();
                         panel.setfigure(5,mypol.getLista().get(0),mypol.getLista().get(1),mypol.getLista().get(2),mypol.getLista().get(3),mypol.getLista().get(4));
                         panel.invalidate();
@@ -146,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     };
 
-
+    //Onclick for spinner
    public void colorSel(View view){
         Context context = getApplicationContext();
             switch (view.getId()) {
@@ -155,25 +154,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     colorCode = "#000000";
                     panel.setcolor(colorCode);
                     panel.invalidate();
-                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Black Selected", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnBlue:
                     colorCode = "#0000FF";
                     panel.setcolor(colorCode);
                     panel.invalidate();
-                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Blue Selected", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnGreen:
                     colorCode = "#008000";
                     panel.setcolor(colorCode);
                     panel.invalidate();
-                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Green Selected", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnRed:
                     colorCode = "#FF0000";
                     panel.setcolor(colorCode);
                     panel.invalidate();
-                    Toast.makeText(context, colorCode, Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Red Selected", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnClear:
                     mypol.getLista().clear();
@@ -196,6 +195,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
 
         }
-
 
 }

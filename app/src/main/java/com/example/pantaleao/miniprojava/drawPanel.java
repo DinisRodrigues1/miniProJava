@@ -21,7 +21,7 @@ public class drawPanel extends View {
     Ponto2D linhaPonto1;
     Ponto2D linhaPonto2;
 
-    //Variaveis poligno
+    //Variaveis poligono
     Ponto2D poligPonto1;
     Ponto2D poligPonto2;
     Ponto2D poligPonto3;
