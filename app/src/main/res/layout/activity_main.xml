@@ -140,9 +140,5 @@
         android:text="ABOUT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/teste"
-        android:text="asvfd"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
 </android.support.constraint.ConstraintLayout>
